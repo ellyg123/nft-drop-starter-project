@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 import twitterLogo from './assets/twitter-logo.svg';
 import CandyMachine from './CandyMachine';
+import vendingMachine from './vendingmachine.png';
 
 // Constants
 const TWITTER_HANDLE = '_buildspace';
@@ -56,9 +57,10 @@ const App = () => {
       className="cta-button connect-wallet-button"
       onClick={connectWallet}
     >
-      connect your wallet
+      connect wallet
     </button>
-    <button className="cta-button solana-button">
+    <img class="vending-machine" src={vendingMachine} alt="Vending Machine"/>
+    {/* <button className="cta-button solana-button">
        <a href={SOLSCAN_LINK}
             target="_blank"
             rel="noreferrer">{`O`}</a>
@@ -67,7 +69,7 @@ const App = () => {
     <a href={BUILDSPACE_LINK}
             target="_blank"
             rel="noreferrer">{`O`}</a>
-    </button>
+    </button> */}
     </div>
   );
 
@@ -87,10 +89,11 @@ const App = () => {
           <p className="sub-text">NFT drop machine with fair mint</p> */}
           {!walletAddress && renderNotConnectedContainer()}
         </div>
+        {/* <img class="vending-machine" src={vendingMachine} alt="Vending Machine"/> */}
         {/* Check for walletAddress and then pass in walletAddress */}
       {walletAddress && <CandyMachine walletAddress={window.solana} />}
         <div className="footer-container">
-          <img alt="Twitter Logo" className="twitter-logo" src={twitterLogo} />
+          <img alt="Twitter Logo" className="twitter-logo" src={twitterLogo}/>
           <a
             className="footer-text"
             href={TWITTER_LINK}

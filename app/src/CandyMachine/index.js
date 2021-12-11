@@ -5,6 +5,13 @@ import { MintLayout, TOKEN_PROGRAM_ID, Token } from '@solana/spl-token';
 import { programs } from '@metaplex/js';
 import './CandyMachine.css';
 import CountdownTimer from '../CountdownTimer';
+import vendingMachineFrontView from '../assets/candy-machine-front-view.png';
+import topButton from '../assets/candy-btn2.png';
+import solanaButton from '../assets/solana-btn2.png';
+import buildspaceButton from '../assets/buildspace-btn2.png';
+import numberButton from '../assets/number-btn_2.png';
+
+
 import {
   candyMachineProgram,
   TOKEN_METADATA_PROGRAM_ID,
@@ -354,6 +361,38 @@ const [isLoadingMints, setIsLoadingMints] = useState(false);
           </div>
         ))}
       </div>
+
+
+      <div class="vending-machine-container">
+      <img class="vending-machine-front" src={vendingMachineFrontView} alt="Vending Machine Front View"/>
+    </div>
+
+    <div class="candy-container front-view-button">
+      <a href="https://docs.metaplex.com/create-candy/introduction" target="_blank"
+            rel="noreferrer">
+            <img src={topButton} alt="top button"/>
+      </a>
+    </div>
+
+    <div class="solana-container front-view-button">
+      <a href="https://solscan.io/" target="_blank"
+            rel="noreferrer">
+          <img src={solanaButton} alt="solana button"/>
+      </a>
+    </div>
+
+    <div class="buildspace-container front-view-button">
+      <a href="https://buildspace.so/" target="_blank"
+            rel="noreferrer">
+          <img src={buildspaceButton} alt="buildspace button"/>
+      </a>
+    </div>
+
+    <div class="number-container front-view-button">
+      <a href="https://docs.metaplex.com/create-candy/introduction">
+          <img src={numberButton} alt="number button"/>
+      </a>
+    </div>
     </div>
   );
 
