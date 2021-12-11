@@ -1,14 +1,28 @@
+:root {
+  --clr-neon: #3AAFF8;
+  --clr-bg: hsl(323 21% 16%);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 .App {
   height: 100vh;
-  background-image: url("./vendingmachine.jpg");
-  /* background-size: cover; */
+  background-image: url("./unknown.png");
+  background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  background-color: white;
+  margin: 0;
+  padding: 0;
+  /* background-color: white; */
   overflow: scroll;
-  /* text-align: center; */
-  overflow: hidden;
+  text-align: center;
+  /* overflow: hidden; */
   animation: fadeIn 2s;
+  background: linear-gradient(#63b9ff,#eaecfa7e, #eaecfa7e, #eaecfa7e);
 }
 
 @keyframes fadeIn {
@@ -24,7 +38,7 @@
   flex-direction: column;
   justify-content: center;
   padding: 0 30px 0 30px;
-  color: white;
+  color: black;
   position: relative;
   /* background-color: #35aee2; */
 }
@@ -66,59 +80,204 @@
   /* border-radius: 10px; */
   cursor: pointer;
   font-size: 16px;
-  box-shadow: 0 0 0 1px black,
-  5px -5px #83100C;
-  font-style: italic;
-}
-
-.cta-button:hover {
-  box-shadow: 0 0 0 1px black,
-  5px -5px black;
-}
-
-.solana-button {
+  color: var(--clr-neon);
+  background-size: 200% 200%;
+  border-radius: 0.25em;
+  border: var(--clr-neon) 0.125em solid;
   position: absolute;
-  height: 27px;
-  width: 27px;
-  top: 63%;
-  left: 43%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  background-color: none;
-  opacity: 0;
-}
-
-.buildspace-button {
-  position: absolute;
-  height: 27px;
-  width: 27px;
-  top: 63%;
-  left: 46.5%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  opacity: 0;
+  text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor;
+  box-shadow: inset 0 0 0.5em 0 var(--clr-neon), 0 0 0.5em 0 var(--clr-neon);
+  top: 22%;
+  left: 46%;
+  z-index: 6;
 }
 
 .connect-wallet-button {
-  color: black;
-  background: -webkit-linear-gradient(left, #c4e7fd, #FDE187);
+  color: var(--clr-neon);
   background-size: 200% 200%;
-  animation: gradient-animation 4s ease infinite;
-  transform: rotate(-90deg);
+  border-radius: 0.25em;
+  border: var(--clr-neon) 0.125em solid;
+  position: absolute;
+  text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor;
+  box-shadow: inset 0 0 0.5em 0 var(--clr-neon), 0 0 0.5em 0 var(--clr-neon);
+  top: 22%;
+  left: 46%;
+  cursor: pointer;
+  z-index: 6;
+} 
+
+
+
+/* .connect-wallet-button {
+  font-size: 4rem;
+  position: absolute;
+  top: 22%;
+  left: 46%;
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--clr-neon);
+  border: var(--clr-neon) 0.125em solid;
+  padding: 0.25em 1em;
+  border-radius: 0.25em;
+
+  text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor;
+
+  box-shadow: inset 0 0 0.5em 0 var(--clr-neon), 0 0 0.5em 0 var(--clr-neon);
+
+  position: relative;
+} */
+
+/* .connect-wallet-button::before {
+  pointer-events: none;
+  content: "";
+  position: absolute;
+  background: var(--clr-neon);
+  top: 120%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: perspective(1em) rotateX(40deg) scale(1, 0.35);
+  filter: blur(1em);
+  opacity: 0.7;
+}  */
+
+.cta-button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  box-shadow: 0 0 2em 0.5em var(--clr-neon);
+  opacity: 0;
+  /* background: var(--clr-neon); */
+  z-index: -1;
+  transition: opacity 100ms linear;
+}  
+
+.cta-button:hover,
+.cta-button:focus {
+  color: var(--clr-bg);
+  text-shadow: none;
+  /* transform: perspective(1em) rotateX(40deg) scale(1, 0.35);  */
+  /* filter: blur(1em); */
+  opacity: 0.7;
+  box-shadow: 0 0 2em 0.5em var(--clr-neon);
+  z-index: 6;
 }
 
+.cta-button:hover::before,
+.cta-button:focus::before {
+  opacity: 1;
+}
+.cta-button:hover::after,
+.cta-button:focus::after {
+  opacity: 1;
+} 
+
 .mint-button {
-  background: -webkit-linear-gradient(left, #4e44ce, #35aee2);
   background-size: 200% 200%;
-  animation: gradient-animation 4s ease infinite;
   margin-left: 10px;
 }
+
+.vending-machine {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 200px;
+  width: 650px;
+  mix-blend-mode: multiply;
+  transition: 1s;
+}
+
+.vending-machine:hover {
+  width: 670px;
+}
+
+.vending-machine-front {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 200px;
+  width: 650px;
+  mix-blend-mode: multiply;
+  transition: 1s;
+}
+
+.candy-container img {
+  height: 73px;
+  width: 300px;
+  position: absolute;
+  top: 340px;
+  /* left: 40%; */
+  transform: translateX(-46%);
+}
+
+.solana-container img {
+  height: 55px;
+  width: 70px;
+  position: absolute;
+  top: 710px;
+  /* left: 40%; */
+  transform: translateX(-183%);
+}
+
+.buildspace-container img {
+  height: 55px;
+  width: 70px;
+  position: absolute;
+  top: 710px;
+  /* left: 40%; */
+  transform: translateX(-37%);
+}
+
+.number-container img {
+  height: 55px;
+  width: 70px;
+  position: absolute;
+  top: 710px;
+  /* left: 40%; */
+  transform: translateX(112%);
+}
+
+.front-view-button img {
+  border:1px solid #000;
+  box-shadow:1px 3px 2px, 1px 4px 0, 1px 5px 0, 1px 6px 0,1px 7px 0;
+}
+
+.front-view-button img:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width:100%;
+   z-index: -1;
+  background-color: #fff;
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -o-transition: all 0.5s;
+}
+
+.front-view-button img:after{
+  background-color: #f6d51e;
+}
+
+.front-view-button img:active{
+   top:5px;
+   left:5px;
+   box-shadow:0 0 0 0;
+}
+
 
 .footer-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
+  /* position: absolute; */
   width: 100%;
   bottom: 0;
   left: 0;
@@ -132,8 +291,8 @@
 
 .footer-text {
   font-size: 16px;
-  font-weight: bold;
-  color: black;
+  /* font-weight: bold; */
+  color: #63b9ff;
 }
 
 .connected-container input[type='text'] {
@@ -186,4 +345,22 @@
   100% {
     background-position: 0% 50%;
   }
+}
+
+@media screen and (max-width: 600px) {
+  .vending-machine, .vending-machine-front {
+    width: 300px;
+    margin-top: 100px;
+  }
+  .connect-wallet-button {
+    left: 35%;
+  }
+ 
+}
+
+@media screen and (max-width: 660px) {
+.front-view-button {
+  display: none;
+  position: static;
+}
 }
