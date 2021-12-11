@@ -1,9 +1,21 @@
 .App {
   height: 100vh;
-  background-color: rgb(20, 20, 20);
+  background-image: url("./vendingmachine.jpg");
+  /* background-size: cover; */
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: white;
   overflow: scroll;
-  text-align: center;
+  /* text-align: center; */
   overflow: hidden;
+  animation: fadeIn 2s;
+}
+
+@keyframes fadeIn {
+  0% {opacity:0;}
+  25% {opacity:0.25;}
+  50% {opacity:0.5;}
+  100% {opacity:1;}
 }
 
 .container {
@@ -49,19 +61,50 @@
   height: 45px;
   border: 0;
   width: auto;
-  padding-left: 40px;
-  padding-right: 40px;
-  border-radius: 10px;
+  /* padding-left: 40px;
+  padding-right: 40px; */
+  /* border-radius: 10px; */
   cursor: pointer;
   font-size: 16px;
-  font-weight: bold;
+  box-shadow: 0 0 0 1px black,
+  5px -5px #83100C;
+  font-style: italic;
+}
+
+.cta-button:hover {
+  box-shadow: 0 0 0 1px black,
+  5px -5px black;
+}
+
+.solana-button {
+  position: absolute;
+  height: 27px;
+  width: 27px;
+  top: 63%;
+  left: 43%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: none;
+  opacity: 0;
+}
+
+.buildspace-button {
+  position: absolute;
+  height: 27px;
+  width: 27px;
+  top: 63%;
+  left: 46.5%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  opacity: 0;
 }
 
 .connect-wallet-button {
-  color: white;
-  background: -webkit-linear-gradient(left, #ff8867, #ff52ff);
+  color: black;
+  background: -webkit-linear-gradient(left, #c4e7fd, #FDE187);
   background-size: 200% 200%;
   animation: gradient-animation 4s ease infinite;
+  transform: rotate(-90deg);
 }
 
 .mint-button {
@@ -90,7 +133,7 @@
 .footer-text {
   font-size: 16px;
   font-weight: bold;
-  color: white;
+  color: black;
 }
 
 .connected-container input[type='text'] {

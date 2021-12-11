@@ -6,6 +6,8 @@ import CandyMachine from './CandyMachine';
 // Constants
 const TWITTER_HANDLE = '_buildspace';
 const TWITTER_LINK = `https://twitter.com/${TWITTER_HANDLE}`;
+const SOLSCAN_LINK = `https://solscan.io/`;
+const BUILDSPACE_LINK = `https://buildspace.so/`;
 
 const App = () => {
   // State
@@ -49,12 +51,24 @@ const App = () => {
   };
 
   const renderNotConnectedContainer = () => (
+    <div>
     <button
       className="cta-button connect-wallet-button"
       onClick={connectWallet}
     >
-      Connect to Wallet
+      connect your wallet
     </button>
+    <button className="cta-button solana-button">
+       <a href={SOLSCAN_LINK}
+            target="_blank"
+            rel="noreferrer">{`O`}</a>
+       </button>
+    <button className="cta-button buildspace-button">
+    <a href={BUILDSPACE_LINK}
+            target="_blank"
+            rel="noreferrer">{`O`}</a>
+    </button>
+    </div>
   );
 
   useEffect(() => {
@@ -69,8 +83,8 @@ const App = () => {
     <div className="App">
       <div className="container">
         <div className="header-container">
-          <p className="header">🍭 Candy Drop</p>
-          <p className="sub-text">NFT drop machine with fair mint</p>
+          {/* <p className="header">🍭 Candy Drop</p>
+          <p className="sub-text">NFT drop machine with fair mint</p> */}
           {!walletAddress && renderNotConnectedContainer()}
         </div>
         {/* Check for walletAddress and then pass in walletAddress */}
@@ -82,7 +96,7 @@ const App = () => {
             href={TWITTER_LINK}
             target="_blank"
             rel="noreferrer"
-          >{`built on @${TWITTER_HANDLE}`}</a>
+          >{`built by Ando Collective`}</a>
         </div>
       </div>
     </div>
