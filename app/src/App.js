@@ -8,6 +8,9 @@ import twitterLogo from './assets/twitter-logo.svg';
 import CandyMachine from './CandyMachine';
 import vendingMachine from './vendingmachine.png';
 
+//test
+import FrontView from './Front-view.js'
+
 
 // Constants
 const TWITTER_HANDLE = '_buildspace';
@@ -56,8 +59,6 @@ const App = () => {
     }
   };
 
-  // Is this the front view?
-
   const renderNotConnectedContainer = () => (
     <div>
     <button
@@ -93,20 +94,27 @@ const App = () => {
     )
   }
 
+  const takeMeThere= () => (
+    <div>
+      <NavLink to="Front-view">TEST</NavLink>
+    </div>
+  )
+
   return (
     <div className="App">
       <div className="container">
         <div className="header-container">
-          {/* <p className="header">🍭 Candy Drop</p>
-          <p className="sub-text">NFT drop machine with fair mint</p> */}
-          {!walletAddress && renderNotConnectedContainer()}
-          {!walletAddress && renderHomepage()}
+        {!walletAddress && renderNotConnectedContainer()}
+        {!walletAddress && renderHomepage()}
         </div>
         {/* <img class="vending-machine" src={vendingMachine} alt="Vending Machine"/> */}
         {/* Check for walletAddress and then pass in walletAddress */}
-        {walletAddress && <CandyMachine walletAddress={window.solana} />}
-        {}
-        {Nav()}
+        {/* {walletAddress && <CandyMachine walletAddress={window.solana} />} */}
+        {/* Below is how I got to Front-view.js */}
+
+        {walletAddress && <FrontView />}
+
+
         <div className="footer-container">
           <img alt="Twitter Logo" className="twitter-logo" src={twitterLogo}/>
           <a

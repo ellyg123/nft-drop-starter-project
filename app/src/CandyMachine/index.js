@@ -351,55 +351,6 @@ const [isLoadingMints, setIsLoadingMints] = useState(false);
     });
   };
 
-  const renderFrontView = () => (
-    <div>
-    <div class="vending-machine-container">
-      <img class="vending-machine-front" src={vendingMachineFrontView} alt="Vending Machine Front View"/>
-    </div>
-
-    <div class="candy-container front-view-button">
-      <a href="https://docs.metaplex.com/create-candy/introduction" target="_blank"
-            rel="noreferrer">
-            <img src={topButton} alt="top button"/>
-      </a>
-    </div>
-
-    <div class="solana-container front-view-button">
-      <a href="https://solscan.io/" target="_blank"
-            rel="noreferrer">
-          <img src={solanaButton} alt="solana button"/>
-      </a>
-    </div>
-
-    <div class="buildspace-container front-view-button">
-      <a href="https://buildspace.so/" target="_blank"
-            rel="noreferrer">
-          <img src={buildspaceButton} alt="buildspace button"/>
-      </a>
-    </div>
-
-    <div class="number-container front-view-button">
-      <a href="https://docs.metaplex.com/create-candy/introduction">
-          <img src={numberButton} alt="number button"/>
-      </a>
-    </div>
-    </div>
-  )
-  // Minted Items
-
-  const renderMintedItems = () => (
-    <div className="gif-container">
-      <p className="sub-text">Minted Items ✨</p>
-      <div className="gif-grid">
-        {mints.map((mint) => (
-          <div className="gif-item" key={mint}>
-            <img src={mint} alt={`Minted NFT ${mint}`} />
-          </div>
-        ))}
-      </div>
-      </div>
-  );
-
   const renderDropTimer = () => {
     // Get the current date and dropDate in a JavaScript Date object
     const currentDate = new Date();
@@ -434,7 +385,7 @@ const [isLoadingMints, setIsLoadingMints] = useState(false);
             </button>
           )}
         {mints.length > 0 && renderMintedItems()}
-        {mints.length > 0 && renderFrontView()}
+        {/* {mints.length > 0 && renderFrontView()} */}
         {isLoadingMints && <p>LOADING MINTS...</p>}
       </div>
     )
