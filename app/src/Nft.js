@@ -95,13 +95,14 @@ const App = () => {
     </div>
   )
 
-
-
+// MINT BTN IS WAY UP THERE 🟢🟢🟢🟢🟢
 
   return (
     <div id="front-view" className="App">
       <div className="container">
         {!beep && nftCollectionRender()}
+        {!beep && mintyButton()}
+        {beep && <CandyMachine walletAddress={window.solana} />}
         
         {/* <div>
             <img src={nftGoddess}></img>
