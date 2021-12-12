@@ -85,20 +85,20 @@ const App = () => {
   }, []);
 
 
-  // Testing ground
-  const Nav = () => {
-    return (
-      <div className="container">
-        <NavLink to="Front-view">TEST</NavLink>
-      </div>
-    )
-  }
+  // // Testing ground
+  // const Nav = () => {
+  //   return (
+  //     <div className="container">
+  //       <NavLink to="Front-view">TEST</NavLink>
+  //     </div>
+  //   )
+  // }
 
-  const takeMeThere= () => (
-    <div>
-      <NavLink to="Front-view">TEST</NavLink>
-    </div>
-  )
+  // const takeMeThere= () => (
+  //   <div>
+  //     <NavLink to="Front-view">TEST</NavLink>
+  //   </div>
+  // )
 
   return (
     <div className="App">
