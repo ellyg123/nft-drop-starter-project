@@ -1,17 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import './Front-view.css';
+import './Nft.css';
 import twitterLogo from './assets/twitter-logo.svg';
 import CandyMachine from './CandyMachine';
 
-import vendingMachineFrontView from './assets/candy-machine-front-view.png';
-import topButton from './assets/candy-btn2.png';
-import solanaButton from './assets/solana-btn2.png';
-import buildspaceButton from './assets/buildspace-btn2.png';
-import numberButton from './assets/number-btn_2.png';
+import nftGoddess from './nft_collection/crypto-goddess-1.png';
+
 
 import { Link, NavLink } from 'react-router-dom';
 
-import NFTPage from './Nft.js'
+import vendingMachine from './vendingmachine.png';
+
+
 
 
 // Constants
@@ -25,21 +24,18 @@ const App = () => {
   const [walletAddress, setWalletAddress] = useState(null);
 
   // boop testing
-  const [boop, setBoop] = useState(false);
+  const [beep, setBeep] = useState(false);
 
   // Actions
-  const boopBtn = () => (
-    <button>BOOP</button>
+    const beepHandler = () => {
+        setBeep(true)
+    }
+
+    const mintyButton = () => (
+        <button onClick={beepHandler}>🟢🟢🟢🟢🟢</button>
     )
 
-    // boopHandler(() => {
-    //     boopBtn.addEventListener("click", function() {
-    //         setBoop(true)
-    //     })
-    // }, []);
-    const boopHandler = () => {
-        setBoop(true)
-    }
+
 
 
   const checkIfWalletIsConnected = async () => {
@@ -86,16 +82,30 @@ const App = () => {
     return () => window.removeEventListener('load', onLoad);
   }, []);
 
+  // render NFTs
+  const nftCollectionRender = () => (
+    <div>
+        <img class="vending-machine" src={nftGoddess} alt="Crpto Goddess"/>
+    </div>
+  )
+
+  const renderHomepage = () => (
+    <div>
+      <img class="vending-machine" src={vendingMachine} alt="Vending Machine"/>
+    </div>
+  )
+
+
+
 
   return (
     <div id="front-view" className="App">
       <div className="container">
-        <butoon onClick={boopHandler}>
-            TAKE ME TO CANDY MACHINE
-        </butoon>
-        {boop && <NFTPage/>}
-
-        <div>TESTESTESTESTEST</div>
+        {!beep && nftCollectionRender()}
+        
+        {/* <div>
+            <img src={nftGoddess}></img>
+        </div> */}
 
         {/* Check for walletAddress and then pass in walletAddress */}
         {/* {walletAddress && <CandyMachine walletAddress={window.solana} />} */}

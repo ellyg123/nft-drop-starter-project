@@ -84,22 +84,6 @@ const App = () => {
     return () => window.removeEventListener('load', onLoad);
   }, []);
 
-
-  // // Testing ground
-  // const Nav = () => {
-  //   return (
-  //     <div className="container">
-  //       <NavLink to="Front-view">TEST</NavLink>
-  //     </div>
-  //   )
-  // }
-
-  // const takeMeThere= () => (
-  //   <div>
-  //     <NavLink to="Front-view">TEST</NavLink>
-  //   </div>
-  // )
-
   return (
     <div className="App">
       <div className="container">

@@ -27,16 +27,6 @@ const App = () => {
   // boop testing
   const [boop, setBoop] = useState(false);
 
-  // Actions
-  const boopBtn = () => (
-    <button>BOOP</button>
-    )
-
-    // boopHandler(() => {
-    //     boopBtn.addEventListener("click", function() {
-    //         setBoop(true)
-    //     })
-    // }, []);
     const boopHandler = () => {
         setBoop(true)
     }
@@ -133,13 +123,18 @@ const App = () => {
     </div>
   )
 
+    const candyButton = () => (
+        <button onClick={boopHandler}>🍭🍭🍭🍭</button>
+    )
+    
   return (
     <div id="front-view" className="App">
       <div className="container">
-        {renderFrontView()}
-        <butoon onClick={boopHandler}>
+        {!boop && renderFrontView()}
+        {/* <butoon onClick={boopHandler}>
             TAKE ME TO CANDY MACHINE
-        </butoon>
+        </butoon> */}
+        {!boop && candyButton()}
         {boop && <NFTPage/>}
 
         {/* Check for walletAddress and then pass in walletAddress */}
