@@ -21,7 +21,7 @@
   overflow: scroll;
   text-align: center;
   /* overflow: hidden; */
-  animation: fadeIn 2s;
+  animation: fadeIn 2.2s;
   background: linear-gradient(#63b9ff,#eaecfa7e, #eaecfa7e, #eaecfa7e);
 }
 

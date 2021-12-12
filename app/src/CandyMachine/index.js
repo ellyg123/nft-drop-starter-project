@@ -351,19 +351,9 @@ const [isLoadingMints, setIsLoadingMints] = useState(false);
     });
   };
 
-  const renderMintedItems = () => (
-    <div className="gif-container">
-      <p className="sub-text">Minted Items ✨</p>
-      <div className="gif-grid">
-        {mints.map((mint) => (
-          <div className="gif-item" key={mint}>
-            <img src={mint} alt={`Minted NFT ${mint}`} />
-          </div>
-        ))}
-      </div>
-
-
-      <div class="vending-machine-container">
+  const renderFrontView = () => (
+    <div>
+    <div class="vending-machine-container">
       <img class="vending-machine-front" src={vendingMachineFrontView} alt="Vending Machine Front View"/>
     </div>
 
@@ -394,6 +384,20 @@ const [isLoadingMints, setIsLoadingMints] = useState(false);
       </a>
     </div>
     </div>
+  )
+  // Minted Items
+
+  const renderMintedItems = () => (
+    <div className="gif-container">
+      <p className="sub-text">Minted Items ✨</p>
+      <div className="gif-grid">
+        {mints.map((mint) => (
+          <div className="gif-item" key={mint}>
+            <img src={mint} alt={`Minted NFT ${mint}`} />
+          </div>
+        ))}
+      </div>
+      </div>
   );
 
   const renderDropTimer = () => {
@@ -430,6 +434,7 @@ const [isLoadingMints, setIsLoadingMints] = useState(false);
             </button>
           )}
         {mints.length > 0 && renderMintedItems()}
+        {mints.length > 0 && renderFrontView()}
         {isLoadingMints && <p>LOADING MINTS...</p>}
       </div>
     )

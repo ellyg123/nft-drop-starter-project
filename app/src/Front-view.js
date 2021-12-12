@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
-
-// remember to run 'npm install -S react-router-dom' in terminal and 'npm install react-router-dom --save'
-import { Link, NavLink } from 'react-router-dom';
-
-import './App.css';
+import './Front-view.css';
 import twitterLogo from './assets/twitter-logo.svg';
 import CandyMachine from './CandyMachine';
 import vendingMachine from './vendingmachine.png';
 
+import { Link, NavLink } from 'react-router-dom';
+
+// test
+import Expire from "./Expire";
 
 // Constants
 const TWITTER_HANDLE = '_buildspace';
@@ -56,24 +56,24 @@ const App = () => {
     }
   };
 
-  // Is this the front view?
 
-  const renderNotConnectedContainer = () => (
-    <div>
-    <button
-      className="cta-button connect-wallet-button"
-      onClick={connectWallet}
-    >
-      connect wallet
-    </button>
-    </div>
-  );
 
-  const renderHomepage = () => (
-    <div>
-      <img class="vending-machine" src={vendingMachine} alt="Vending Machine"/>
-    </div>
-  )
+//   const renderNotConnectedContainer = () => (
+//     <div>
+//     <button
+//       className="cta-button connect-wallet-button"
+//       onClick={connectWallet}
+//     >
+//       connect wallet
+//     </button>
+//     </div>
+//   );
+
+//   const renderHomepage = () => (
+//     <div>
+//       <img class="vending-machine" src={vendingMachine} alt="Vending Machine"/>
+//     </div>
+//   )
 
   useEffect(() => {
     const onLoad = async () => {
@@ -83,30 +83,18 @@ const App = () => {
     return () => window.removeEventListener('load', onLoad);
   }, []);
 
-
-  // Testing ground
-  const Nav = () => {
-    return (
-      <div className="container">
-        <NavLink to="Front-view">TEST</NavLink>
-      </div>
-    )
-  }
-
   return (
-    <div className="App">
+    <div id="front-view" className="App">
       <div className="container">
         <div className="header-container">
-          {/* <p className="header">🍭 Candy Drop</p>
-          <p className="sub-text">NFT drop machine with fair mint</p> */}
-          {!walletAddress && renderNotConnectedContainer()}
-          {!walletAddress && renderHomepage()}
+          <p className="header">🍭 Candy Drop</p>
+          <p className="sub-text">NFT drop machine with fair mint</p>
+          {/* {!walletAddress && renderNotConnectedContainer()} */}
+          {/* {!walletAddress && renderHomepage()} */}
         </div>
         {/* <img class="vending-machine" src={vendingMachine} alt="Vending Machine"/> */}
         {/* Check for walletAddress and then pass in walletAddress */}
-        {walletAddress && <CandyMachine walletAddress={window.solana} />}
-        {}
-        {Nav()}
+      {/* {walletAddress && <CandyMachine walletAddress={window.solana} />} */}
         <div className="footer-container">
           <img alt="Twitter Logo" className="twitter-logo" src={twitterLogo}/>
           <a
